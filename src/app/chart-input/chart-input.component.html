@@ -1,0 +1,7 @@
+<input type="file" (change)="fileSelected($event)">
+<label for="charts">Choose chart:</label>&nbsp;
+<select id="charts" (change)="chartChanged($event)">
+  <option selected disabled>Choose</option>
+  <option *ngFor="let chart of chartType" value="{{chart.value}}">{{chart.name}}</option>
+</select>
+<app-chart [labels]="labels" [values]="values"></app-chart>
