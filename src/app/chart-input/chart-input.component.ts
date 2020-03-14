@@ -8,8 +8,8 @@ import { Subject } from "rxjs";
   styleUrls: ["./chart-input.component.scss"]
 })
 export class ChartInputComponent implements OnInit {
-  labels: any = [];
-  values = [];
+  labels: Array<string> = [];
+  values: Array<any> = [];
   selectedFile: File;
   chartSelected: Subject<string>;
   chartType = [
@@ -49,18 +49,14 @@ export class ChartInputComponent implements OnInit {
   }
 
   getLablesAndValues(sheetData) {
-    const data = _.countBy([...sheetData], "Task");
-    console.log("data", data);
+    const data = _.countBy([...sheetData], "Lebels");
     for (const [key, value] of Object.entries(data)) {
       this.labels.push(key);
       this.values.push(value);
     }
-    console.log("this.labels", this.labels);
-    console.log("this.values", this.values);
   }
 
   chartChanged(event) {
-    console.log("event", event.target.value);
     this.chartSelected.next(event.target.value);
   }
 }

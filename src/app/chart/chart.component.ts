@@ -17,11 +17,11 @@ export class ChartComponent implements OnInit {
       next: type => {
         this.hideCanvas = true;
         setTimeout(() => {
-        this.hideCanvas = false;
-        }, 1000);
-        setTimeout(()=>{
+          this.hideCanvas = false;
+        }, 100);
+        setTimeout(() => {
           this.drawChart(type);
-        },1000)
+        }, 100);
       }
     });
   }
